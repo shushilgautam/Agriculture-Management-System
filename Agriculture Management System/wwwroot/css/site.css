@@ -20,3 +20,10 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.navbar-nav{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    align-items: center;
+}

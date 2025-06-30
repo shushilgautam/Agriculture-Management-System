@@ -1,0 +1,36 @@
+﻿@model Agriculture_Management_System.ViewModels.LoginViewModel;
+
+@{
+    Layout = "~/Views/Shared/_Auth.cshtml";
+}
+
+<div class="form-container w-100">
+    <h1 class="text-center">Login</h1>
+    @using (Html.BeginForm("Login", "Auth", FormMethod.Post))
+    {
+     
+            <div class="form-group mb-3">
+                @Html.LabelFor(m => m.Email, new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter your email" })
+                @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group mb-3">
+                @Html.LabelFor(m => m.Password, new { @class = "form-label" })
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Enter your password" })
+                @Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-check mb-3">
+                @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input" })
+                @Html.LabelFor(m => m.RememberMe, new { @class = "form-check-label" })
+                @Html.ValidationMessageFor(m => m.RememberMe, null, new { @class = "text-danger" })
+            </div>
+            <div class="text-center mb-3">
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </div>
+            <div class="text-center mb-3">
+                <button asp-action="Register" asp-controller="Auth" class="btn btn-primary w-100">Create An account</button>
+            </div>
+        
+    }
+
+</div>

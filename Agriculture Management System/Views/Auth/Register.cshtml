@@ -1,0 +1,56 @@
+﻿@model Agriculture_Management_System.ViewModels.RegisterViewModel;
+
+@{
+    Layout = "~/Views/Shared/_Auth.cshtml";
+}
+
+<div class="form-container">
+    <h1>Registration Form</h1>
+    @using (Html.BeginForm("Register", "Auth", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="row g-3">
+            <div class="col-md-6">
+                @Html.LabelFor(m => m.FullName, new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.FullName, null, new { @class = "text-danger d-none" })
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(m => m.Email, new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger d-none" })
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(m => m.Password, new { @class = "form-label" })
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger d-none" })
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "form-label" })
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ConfirmPassword, null, new { @class = "text-danger d-none" })
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(m => m.PhoneNumber, new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PhoneNumber, null, new { @class = "text-danger d-none" })
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(m => m.Role, new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.Role, new { @class = "form-control", placeholder = "Admin, Farmer, or Buyer" })
+                @Html.ValidationMessageFor(m => m.Role, null, new { @class = "text-danger d-none" })
+            </div>
+            <div class="col-12">
+                @Html.LabelFor(m => m.Address, new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.Address, new { @class = "form-control", placeholder = "1234 Main St" })
+                @Html.ValidationMessageFor(m => m.Address, null, new { @class = "text-danger d-none" })
+            </div>
+            <div class="col-12">
+                @Html.LabelFor(m => m.ProfilePhoto, "Profile Photo", new { @class = "form-label" })
+                <input type="file" name="ProfilePhoto" class="form-control" />
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+        </div>
+    }
+</div>
